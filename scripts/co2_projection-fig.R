@@ -68,5 +68,11 @@ plot_co2 <- ggplot(subset(hector_merge,
   theme_light() +
   guides(alpha = "none") +
   ggtitle(expression("CO"[2]~"concentration projections 1990 to 2100"))
-
 plot_co2
+ggsave("co2_projection.png",
+       device = "png",
+       path = "figure_output/",
+       width = 15,
+       height = 12,
+       units = c("cm"),
+       dpi = 300)
