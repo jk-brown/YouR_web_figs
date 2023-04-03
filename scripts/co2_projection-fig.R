@@ -35,12 +35,13 @@ ini_370 <- system.file("input/hector_ssp370.ini", package = "hector")
 ini_585 <- system.file("input/hector_ssp585.ini", package = "hector")
 
 # Running hector for each scenario
+start <- Sys.time()
 set.seed(2)
 hector_126 <- scored_hector_runs(ini_126, ssp_name = "ssp126", 50, criterion_co2_obs())
 hector_245 <- scored_hector_runs(ini_245, ssp_name = "ssp245", 50, criterion_co2_obs())
 hector_370 <- scored_hector_runs(ini_370, ssp_name = "ssp370", 50, criterion_co2_obs())
 hector_585 <- scored_hector_runs(ini_585, ssp_name = "ssp585", 50, criterion_co2_obs())
-
+print( Sys.time() - start )
 # Merging hector results for plotting
 hector_merge <- rbind(hector_126,
                       hector_245,
